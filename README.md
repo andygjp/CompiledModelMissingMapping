@@ -35,3 +35,15 @@ The type mapping used is incompatible with a compiled model. The mapping type mu
 ```
 
 I get the same error even if I use the v7.0.11 of the ef tooling.
+
+# Update
+
+Adding the [daily build](https://github.com/dotnet/efcore/blob/main/docs/DailyBuilds.md) as a source and then updating
+the packages to v8.0.0-rtm.23470.3 resolves this issue.
+
+However, it introduces a new error:
+
+![image](Screenshot%202023-09-20%20at%2023.32.14.png)
+
+I tried to update the tooling: `dotnet tool update --version 8.0.0-rtm.23470.3 --add-source https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet8/nuget/v3/index.json dotnet-ef`,
+but the tooling doesn't work because it expects dotnet framework v8.0.0-rc.2.23469.9 - I don't know how to get that.
